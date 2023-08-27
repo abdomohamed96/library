@@ -1,0 +1,107 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+header{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: #5f5fb0;
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-weight: bold;
+    background-color: #e2e2e2ee;
+    letter-spacing: 2px;
+    background-attachment: fixed;
+
+}
+section{
+    flex:1;
+    background-image: url("images/background2.jpg");
+    background-size: contain;
+    background-attachment: fixed;
+    position: relative;
+}
+form{
+    margin: 15px auto;
+    padding: 15px;
+    height: 150px;
+    width: auto;
+}
+.formBody{
+    display: flex;
+    gap: 10px;
+    margin: inherit;
+}
+footer >img{
+    width: 30px;
+    transition: .5s;
+}
+footer>img:hover{
+transform: rotate(1turn);   
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5f5fb0;
+    height: 45px;
+    gap: 10px;
+}
+a{
+    text-decoration: none;
+    color: #eeee;
+}
+.save{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    position: absolute;
+}
+dialog{
+    position: absolute;
+    left: 50% ; 
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    border-radius: 50px;
+    background-color: #eeee;
+
+}
+.bookBox{
+    
+    width: 300px;
+    height: 80px;
+    color: #1c218a;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.deletionButton{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin: 5px;
+    right: 0;
+    border: 0;
+    top: 0;
+    background-color: white;
+    color: black;
+}
+.deletionButton:hover{
+    background-color: #c52a2a;
+    color: white;
+}
