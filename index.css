@@ -105,3 +105,40 @@ dialog{
     background-color: #c52a2a;
     color: white;
 }
+.books{
+    display: flex;
+    flex-wrap: wrap;
+        
+}
+.divAddButton{
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    padding: 10px;
+}
+.addBook{
+    border-radius: 10px;
+    height: 30px;
+    transition: .3s;
+}
+.addBook:hover{
+    scale: 1.222;
+    background-color: #5f5fb0;
+    color: white;
+}
+.bookBox{
+    background-color: #eeee;
+    margin: 15px;
+    border-radius: 10px;
+    height: 150px;
+    padding: 15px;
+}
+.bookBox:hover{
+    color: #eeee;
+    background-color: #5f5fb0;
+
+}
+.readButton{
+    border:2px solid #5f5fb0;
+    background-color: #eee;
+}

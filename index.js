@@ -9,7 +9,6 @@ const author=document.querySelector("#auth");
 const pages=document.querySelector("#pag")
 const read=document.querySelector("#read");
 const bookShelf = document.querySelector(".books");
-console.log(bookShelf);
 //global variables
 const myLibrary = [];
 let deleteBook=[];
@@ -18,14 +17,22 @@ let bookBox=[];
 addBookButton.addEventListener("click",()=>dialog.showModal())
 confirming.addEventListener("click",(e)=>{
   e.preventDefault();
-  addBookToLibrary(title.value,author.value,Number(pages.value),read.value);
+  let readOrNot=(read.checked)?"read":"Not read";
+  addBookToLibrary(title.value,author.value,Number(pages.value),readOrNot);
   dialog.close();
 })
-function deleteBoxWithBox(){
-    deleteBook[deleteBook.length - 1].addEventListener("click", () => {
-      bookBox[bookBox.length - 1].remove();
-    })
-}
+document.addEventListener("click",(e)=>{
+  if (e.target.classList.contains("deletionButton"))
+    e.target.parentNode.remove();
+  else if (e.target.classList.contains("readButton")){
+    if (e.target.textContent =="read"){
+      e.target.textContent="Not read";
+    }else{
+      e.target.textContent = "read";
+    }
+  }
+})
+
 //function definitions 
 function Book(title,author,pages,read) {
   this.title=title;
@@ -33,22 +40,29 @@ function Book(title,author,pages,read) {
   this.pages=pages;
   this.read=read;
   this.info=()=>{
-    return (`${title} was written by ${author},${pages},${read}`)
+    return (`${title} was written by "${author}" , ${pages} pages`)
   }
 }
 
 function addBookToLibrary(title,author,pages,read) {
   if(title&&author&&pages&&read)
   {const book=new Book(title,author,pages,read);
-  console.log(book);
   addToShelf(book);
   myLibrary.push(book);
-  console.log(myLibrary);}
+ }
 }
 function addToShelf(book){
    bookBox[bookBox.length]=document.createElement("div");
   const h2=document.createElement("h2");
   const p=document.createElement("p");
+  const readButton =document.createElement("button");
+  readButton.classList.add("readButton");
+  if(book.read=="read"){
+    readButton.textContent="read";
+  }else{
+    readButton.textContent = "Not read";
+  }
+
   deleteBook[deleteBook.length]=document.createElement("button");
   deleteBook[deleteBook.length-1].textContent="X";
   deleteBook[deleteBook.length-1].classList.add("deletionButton")
@@ -57,9 +71,10 @@ function addToShelf(book){
   bookBox[bookBox.length - 1].appendChild(h2);
   bookBox[bookBox.length - 1].appendChild(p);
   bookBox[bookBox.length - 1].appendChild(deleteBook[deleteBook.length - 1]);
+  bookBox[bookBox.length - 1].appendChild(readButton);
   bookBox[bookBox.length - 1].classList.add("bookBox");
   bookShelf.appendChild(bookBox[bookBox.length - 1]);
-  deleteBoxWithBox();
+
 
 }
 

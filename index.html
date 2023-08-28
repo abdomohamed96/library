@@ -16,19 +16,19 @@
                 <div class="formBody">
                     <div class="title">
                         <label for="tit">title:</label>
-                        <input id="tit" type="text" placeholder="required" />
+                        <input id="tit" type="text" placeholder="required" autofocus />
                     </div>
                     <div class="author">
                         <label for="auth">author:</label>
-                        <input id="auth" type="text" placeholder="required" autofocus />
+                        <input id="auth" type="text" placeholder="required" />
                     </div>
                     <div class="pages">
                         <label for="pag">pages</label>
                         <input id="pag" type="text"  placeholder="required"/>
                     </div>
                     <div class="readOrNot">
-                        <label for="read">Read Or Not Read:</label>
-                        <input id="read" type="text" placeholder="required" />
+                        <label for="read">Read</label>
+                        <input id="read" type="checkbox"  placeholder="required" />
                     </div>
                 </div>
                 <div class="save">
@@ -44,7 +44,9 @@
                 </div>
             </form>
         </dialog>
-        <button class="addBook">Add book</button>
+        <div class="divAddButton">
+            <button class="addBook">Add book</button>
+        </div>
         <div class="books"></div>
     </section>
     <footer>
