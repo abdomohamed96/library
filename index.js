@@ -10,9 +10,6 @@ const pages=document.querySelector("#pag")
 const read=document.querySelector("#read");
 const bookShelf = document.querySelector(".books");
 //global variables
-const myLibrary = [];
-let deleteBook=[];
-let bookBox=[];
 //add Event Listener
 addBookButton.addEventListener("click",()=>dialog.showModal())
 confirming.addEventListener("click",(e)=>{
@@ -48,11 +45,10 @@ function addBookToLibrary(title,author,pages,read) {
   if(title&&author&&pages&&read)
   {const book=new Book(title,author,pages,read);
   addToShelf(book);
-  myLibrary.push(book);
  }
 }
 function addToShelf(book){
-   bookBox[bookBox.length]=document.createElement("div");
+  const bookBox=document.createElement("div");
   const h2=document.createElement("h2");
   const p=document.createElement("p");
   const readButton =document.createElement("button");
@@ -63,17 +59,17 @@ function addToShelf(book){
     readButton.textContent = "Not read";
   }
 
-  deleteBook[deleteBook.length]=document.createElement("button");
-  deleteBook[deleteBook.length-1].textContent="X";
-  deleteBook[deleteBook.length-1].classList.add("deletionButton")
+  const deleteBook=document.createElement("button");
+  deleteBook.textContent="X";
+  deleteBook.classList.add("deletionButton")
   h2.textContent=book.title;
   p.textContent=book.info();
-  bookBox[bookBox.length - 1].appendChild(h2);
-  bookBox[bookBox.length - 1].appendChild(p);
-  bookBox[bookBox.length - 1].appendChild(deleteBook[deleteBook.length - 1]);
-  bookBox[bookBox.length - 1].appendChild(readButton);
-  bookBox[bookBox.length - 1].classList.add("bookBox");
-  bookShelf.appendChild(bookBox[bookBox.length - 1]);
+  bookBox.appendChild(h2);
+  bookBox.appendChild(p);
+  bookBox.appendChild(deleteBook);
+  bookBox.appendChild(readButton);
+  bookBox.classList.add("bookBox");
+  bookShelf.appendChild(bookBox);
 
 
 }
